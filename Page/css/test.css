@@ -1,0 +1,65 @@
+@import url(http://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,600,700,300,800);
+@import url(http://fonts.googleapis.com/css?family=PT+Sans+Narrow|Poppins|Roboto+Condensed);
+
+
+body{
+	background: white;
+}
+table{
+	text-align: center;
+	margin: auto;
+}
+
+
+/* LIST PROPERTIES */
+th{
+	background: blue;
+}
+ul { 
+	columns: 2;
+	-webkit-columns: 2;
+	-moz-columns: 2; 
+	list-style-type: none;
+	 padding: 5px;
+	 overflow: hidden;
+	 width:  450px;
+}
+li{	
+	line-height: 1.5em;
+	border-bottom: 1px;
+	border-right: 2px;
+	/*display: inline;	*/ 
+	border-bottom: 0px solid #dbd4d4;
+	font-family: 'Poppins',sans-serif;
+	padding: 1px;
+}
+/************************/
+
+
+
+
+
+
+#divUl{
+	width: 50%;
+	height: 150px;
+	border: 0px solid;
+	clear: left;
+	margin: auto;
+	padding: 10px;
+	margin-bottom: 20px;
+	box-shadow: -5px -5px 45px #888888;
+	border-radius: 15px;
+}
+#imgUl { 
+	border-radius: 10px;
+ 	content: url('../images/user.gif');  
+ 	background-repeat: no-repeat;
+	width: 150px;
+	height: 150px;
+	margin: auto;
+	padding: 0;
+	display: inline;
+	float: left;
+	overflow: hidden;
+}
