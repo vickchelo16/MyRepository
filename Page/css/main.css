@@ -1898,20 +1898,25 @@ ul.social_icons li  a i{
 ********* Historial ******
 **************************/
 .wrapHistorial { 
-overflow-x: auto;
+  overflow-x: auto;
 
 }
-.wrapHistorial table {
+#tableRecibos {
+   
   width:  80%;
   margin-top: 50px;
   margin-left:  15%;
-  margin-right:  15%;   
+  margin-right:  15%; 
 
 }
 .wrapHistorial h1{
-  color: black;
-  text-align:  center;
+  /*color: #50c484;*/
+  color: #0099FF;
+  text-align: center;
   padding-top: 20px;
+  font-family: 'Poppins',sans-serif;   
+  font-size: 40px;
+  padding-bottom: 15px;
 }
 /*
 table, th, td{
@@ -1923,7 +1928,7 @@ td{
   font-size: 18px;   
 }*/
  th{
-  font-size: 50px;   
+  font-size: 15px;   
   font-family: Helvetica;
   padding: 17px;
   background-color: #1296b7;
@@ -1943,46 +1948,87 @@ td:nth-child(even){
 /*********************
 TABLE MAIN
 **********************/
-
-/*
- #datosGenerales {  
-   text-align: center;   
- }       
- #datosGenerales img{
-  display: inline;    
-  overflow: hidden; 
-  position: relative;
-  margin: 10px;  
-  padding: 0px;
-  border: 0px;     
-  vertical-align: middle;
-} 
-#datosGenerales ul{
-   display: inline-block;
-   text-align: center;
-   margin-bottom: 10px;
-   vertical-align: center;    
+#datosGenerales{   
+  padding-bottom: 150px;   
 }
-#datosGenerales ul,li{
-  list-style-type: none;   
-  margin-bottom: 20px;
+ #ulValues { 
+  columns: 2;
+  -webkit-columns: 2;
+  -moz-columns: 2; 
+  list-style-type: none;
+  padding-top: 20px;
+  overflow: hidden;
+  width:  500px;
+  padding-left: 15px;
+  left: 40px;    
 }
-#datosGenerales p{   
-  display: inline;
-}
-/*
-#tableDt {
-  padding-top: 10px;
-   
-  font-family: 'PT Sans Narrow',sans-serif;   
-}
- 
-#tableDt th,td{   
-  margin-bottom: 20px;
+#ulValues li{ 
+  line-height: 1.5em;
+  border-bottom: 1px;
+  border-right: 2px;   
+  border-bottom: 0px solid #dbd4d4;
   font-family: 'Poppins',sans-serif;
-}*/
+  padding: 1px;
+   margin-left: 20px;
+} 
+#ulValues li strong{
+  font-size: 18px;
+} 
+#ulValues li{
+  font-size: 14px;
+  font-family: 'Helvetica' red;
+} 
+#divUl{
+  padding-bottom: 35px;
+  margin-bottom: 35px;
+  width: 50%;
+  height: 150px;
+  border: 0px solid;
+  clear: left;
+  margin: auto;
+  padding: 10px;   
+  box-shadow: -5px -5px 45px #888888;
+  border-radius: 15px;
+}
+#imgUl { 
+  border-radius: 10px;
+  content: url('../images/me.jpg');  
+  background-repeat: no-repeat;
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  padding: 0;
+  display: inline;
+  float: left;
+  overflow: hidden;
+  padding-bottom: 20px;
+} 
+#tableRecibos tr:hover{
+  background-color: #66ddcf;
+}
+button{
+  color: red;
+  background-color: white;
+}
+button:hover{
+  color: blue;
+  background-color: white;
+}
+
+#tableRecibos th,td{   
+  margin-bottom: 20px;
+  font-family: 'Poppins',sans-serif;   
+  text-align: center;
+  font-size: 17px;
+} 
+#tableRecibos th{
+  font-size: 23px;
+}
 #tableRecibos {
-	margin: auto;
+   vertical-align: center;
+	text-align: center;   
+  margin: auto;
+  box-shadow: -5px -5px 45px #DDDDDD;
 }
 .wrapHistorial #wrapId{
   text-align: center;
@@ -2610,6 +2656,7 @@ PAGINATION HTML
 }
 .pageNumber {
   padding: 2px;
+  background-color: red;
 }
 /******************
  404 page css
