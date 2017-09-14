@@ -34,15 +34,7 @@
             }
             </style>   
 
-            <?php
-            /*
-            echo 'var imgError = document.createElement('img');';
-            echo 'imgError.src = 'images/error.png';';
-            echo 'imgError.name = 'imgError'';
-            echo 'imgError.width = 50;';
-            echo 'imgError.height = 50;';
-            echo 'document.getElementById('divError').appendChild(imgError);';
-            */
+            <?php 
         }
     $con = mysqli_connect('www.qc-control.mx','root_qccontrol','Prbendiciones2',"recibos_nomina");   
     if(isset($_POST['usernameInp'])){    
@@ -60,7 +52,7 @@
             exit();
         }
         
-        $sql = "SELECT NickName FROM Usuarios where NickName = '".$unameGot."'";                                       
+        $sql = "SELECT NickName FROM Empleados where idEmpleado = ".$unameGot."";                                       
         $result = mysqli_query($con,$sql);         
         $uicheck = mysqli_num_rows($result);         
         mysqli_free_result($result);
@@ -70,15 +62,16 @@
         }
          
         if($uicheck > 0){             
-            $sqlAccess = "SELECT NickName FROM  Usuarios where NickName = '".$unameGot."' and Contrasena = '".$passwordGot."'";                 
+            $sqlAccess = "SELECT NickName FROM  Empleados where idEmpleado = ".$unameGot." and Contrasena = '".$passwordGot."'";                 
             $resultAcess = mysqli_query($con,$sqlAccess);            
             $uicheckAcess = mysqli_num_rows($resultAcess);                          
             /* while ($row2 = mysqli_fetch_assoc($resultAcess)) {
                 echo $row2['PrimerNombre'];
             }*/
             mysqli_free_result($resultAcess);
-            if($uicheckAcess >= 1){                   
-                header("Location: /Page/historial.php");
+            if($uicheckAcess >= 1){       
+                $_SESSION['idEmpleado'] = $unameGot; 
+                header("Location: ../Page/historial.php");
                 die();
             }
             else{

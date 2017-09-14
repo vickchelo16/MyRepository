@@ -94,15 +94,17 @@
     
     <div id="datosGenerales">          
         <?php
+                    $idUser = $_SESSION['idEmpleado'];
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
-
-                    $result = mysqli_query($con,"Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre ,emp.SegundoNombre , emp.ApellidoPaterno , emp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, emp.FechaInicio 'Fecha Ingreso' ,p.Puesto,tr.TipoRecibo,sem.idSemana, DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin' from relEmpleadosRecibos rER
-                                inner join Empleados emp on rER.idEmpleado = emp.idEmpleado
-                                inner join Puestos p on emp.idPuesto = p.idPuesto
-                                inner join Semanas sem on rER.idRelSemana = sem.idIdentity
-                                inner join TiposRecibo tr on rER.idTipoRecibo = tr.idIdentity 
-                                Order by sem.idSemana asc");
-                   
+                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana, DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
+                                inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
+                                inner join Puestos p on emp.idPuesto = p.idPuesto \r
+                                inner join Semanas sem on rER.idRelSemana = sem.idIdentity \r
+                                inner join TiposRecibo tr on rER.idTipoRecibo = tr.idIdentity \r
+                                where emp.idEmpleado = ".$idUser." \r
+                                Order by sem.idSemana asc";
+                    $result = mysqli_query($con,$sSql);
+                   /*echo "<div width=150>$sSql</div>";*/
 
                     $bHeader = false;
                     $idRelReciboUsuario = 0;
@@ -115,6 +117,7 @@
                     $sRFC = '';
                     $dtFechaIngreso = '';
                     $sPuesto = '';
+                    $imgFoto = null;
 
                     while($row = mysqli_fetch_assoc($result))
                     {
@@ -131,6 +134,7 @@
                             $sRFC = $row['RFC'] ;
                             $dtFechaIngreso = $row['Fecha Ingreso'];
                             $sPuesto = $row['Puesto'] ;
+                            $imgFoto = $row['Foto'] ;
 
                             echo "<div id=divUl >
                             <img id=imgUl >
