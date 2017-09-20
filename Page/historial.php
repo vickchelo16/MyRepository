@@ -33,8 +33,14 @@
 
 <script>
     function vShowPDF(el)
-    { 
-         window.open("viewer.pdf","PDF");
+    {    
+        alert(el);
+        /*
+       <?php
+         $_SESSION["id"] = el;
+        ?>
+         window.open("viewer","PDF");   
+         */       
     }
 </script>   
 
@@ -172,7 +178,7 @@
                         echo "<td>" .$row['idSemana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
                         echo "<td>" .$row['Fecha Fin'] . "</td>";
-                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF(this)>PDF</button></td>";
+                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF(this.id)>PDF</button></td>";
                         echo "</tr>";                     
                     }
                     echo "</table>";                    
