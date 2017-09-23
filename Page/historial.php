@@ -10,10 +10,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Login a | QC Control System</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
    
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/font-awesome.min.css" rel="stylesheet">
@@ -30,10 +31,21 @@
     <link rel="apple-touch-icon-precomposed" sizes="114x114" href="images/ico/apple-touch-icon-114-precomposed.png">
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
+
+    <script> 
+    function vShowPDF(el)
+    { 
+        //var imgUrl = new Image();
+        //imgUrl.src = "data:image/jpg;base64," + "http://localhost/page/myrepository/page/images/PDF/test.pdf";
+        //imgUrl.src = "images/PDF/test.pdf";
+        <embed width="100%" height="100%" name="plugin" src="images/PDF/test.pdf" type="application/pdf">
+    }
+    </script>
 </head><!--/head-->
 
 <body>
     <div> 
+      <embed width="100%" height="100%" name="plugin" src="images/PDF/test.pdf" type="application/pdf">
     </div>
     <header id="header">
         <div class="top-bar">
@@ -87,11 +99,10 @@
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->    
+    
     <div class="wrapHistorial">  
-    <h1>Recibos de pago</h1>          
-     
-    
-    
+        <h1>Recibos de pago</h1>    
+
     <div id="datosGenerales">          
         <?php
                     $idUser = $_SESSION['idEmpleado'];
@@ -120,8 +131,7 @@
                     $imgFoto = null;
 
                     while($row = mysqli_fetch_assoc($result))
-                    {
-                       
+                    {                       
                         if($bHeader == false)
                         {
                             $bHeader = true;
@@ -134,7 +144,9 @@
                             $sRFC = $row['RFC'] ;
                             $dtFechaIngreso = $row['Fecha Ingreso'];
                             $sPuesto = $row['Puesto'] ;
-                            $imgFoto = $row['Foto'] ;
+                            $imgFoto = $row['Foto'];
+
+                            /*<object data="data:application/pdf;base64,<?php echo base64_encode(imgFoto) ?>" type="application/pdf" style="height:200px;width:60%"></object>*/
 
                             echo "<div id=divUl >
                             <img id=imgUl >
