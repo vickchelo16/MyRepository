@@ -142,8 +142,8 @@
             <form method="POST" class="formMain" name="Form" action="login.php" autocomplete="off" onsubmit="return vValidateEmpty()">                    
                 <h1>Login</h1>
                 <h4>Introduce tu numero de empleado y contraseña para acceder a tus recibos de pago.</h4>
-                <input type="text-indent:17px;" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="15" onblur="vValidateEmpty()">
-                <p id="errorUsuario"></p>
+                <input type="text-indent:17px;" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="15" onblur="vValidateEmpty()" autofocus>
+                <p id="errorUsuario" ></p>
                 <input type="password" id="pass" name="passwordInp" placeholder= "Contrase&ntilde;a ..." maxlength="15" onblur="vValidateEmpty()">
                 <p id="errorPass"></p>
                 <input type="submit" name="submit" value="ENTRAR" class="btn-login" /> 

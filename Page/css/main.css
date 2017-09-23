@@ -1911,10 +1911,10 @@ ul.social_icons li  a i{
 }
 .wrapHistorial h1{
   /*color: #50c484;*/
-  color: #0099FF;
+  color: #687370;
   text-align: center;
   padding-top: 20px;
-  font-family: 'Poppins',sans-serif;   
+  font-family: 'Poppins',sans-serif;
   font-size: 40px;
   padding-bottom: 15px;
 }
@@ -1928,10 +1928,10 @@ td{
   font-size: 18px;   
 }*/
  th{
-  font-size: 15px;   
+  font-size: 7px;   
   font-family: Helvetica;
   padding: 17px;
-  background-color: #1296b7;
+  background-color: #002f56;
   color: white;
    margin-top: 10px;
 } /*
@@ -2007,8 +2007,8 @@ TABLE MAIN
   background-color: #66ddcf;
 }
 button{
-  color: red;
-  background-color: white;
+  color: #e5eaec;
+  background-color: #ab3c3c;
 }
 button:hover{
   color: blue;

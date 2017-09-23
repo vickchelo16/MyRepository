@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     include 'php/conn.php';
 ?>
 
@@ -32,37 +32,32 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<<<<<<< HEAD
-    <script> 
-    function vShowPDF(el)
-    { 
-        //var imgUrl = new Image();
-        //imgUrl.src = "data:image/jpg;base64," + "http://localhost/page/myrepository/page/images/PDF/test.pdf";
-        //imgUrl.src = "images/PDF/test.pdf";
-        <embed width="100%" height="100%" name="plugin" src="images/PDF/test.pdf" type="application/pdf">
-    }
-    </script>
-=======
 <script>
-    function vShowPDF(el)
-    {    
-        alert(el);
-        /*
+    function vShowPDF(id)
+    {            
+        console.log(id) ;
+       window.open("viewer.php?idFolio="+id,"Recibo",'width=1000');
+       /*
        <?php
-         $_SESSION["id"] = el;
+         $_SESSION["id"] = id;
         ?>
-         window.open("viewer","PDF");   
-         */       
+         window.open("viewer","PDF"); 
+        */
     }
-</script>   
+</script>
 
->>>>>>> c84c41068c738216153e88eecec0cab5b9648e32
+<script type="text/javascript">
+    window.onbeforeunload = function(){
+        $.ajax({
+            type: "POST",
+            url: "historial.php"
+        });
+    }
+</script>
+
 </head><!--/head-->
 
-<body>
-    <div> 
-      <embed width="100%" height="100%" name="plugin" src="images/PDF/test.pdf" type="application/pdf">
-    </div>
+<body> 
     <header id="header">
         <div class="top-bar">
             <div class="container">
@@ -192,7 +187,7 @@
                         echo "<td>" .$row['idSemana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
                         echo "<td>" .$row['Fecha Fin'] . "</td>";
-                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF(this.id)>PDF</button></td>";
+                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
                         echo "</tr>";                     
                     }
                     echo "</table>";                    
@@ -228,8 +223,6 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
 
-    <script>
-    $(".table").DataTable();
-</script>
+     
 </body>
 </html>
