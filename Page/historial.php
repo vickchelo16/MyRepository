@@ -34,9 +34,8 @@
 
 <script>
     function vShowPDF(id)
-    {            
-        console.log(id) ;
-       window.open("viewer.php?idFolio="+id,"Recibo",'width=1000');
+    {     
+       window.open("viewer.php?idFolio="+id,"Recibo" );
        /*
        <?php
          $_SESSION["id"] = id;
@@ -118,7 +117,7 @@
         <?php
                     $idUser = $_SESSION['idEmpleado'];
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
-                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana, DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
+                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
                                 inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
                                 inner join Puestos p on emp.idPuesto = p.idPuesto \r
                                 inner join Semanas sem on rER.idRelSemana = sem.idIdentity \r
@@ -174,7 +173,7 @@
                                 echo "<table id=tableRecibos border= '0'>";
                                 echo "<tr>";                      
                                 echo "<th>TipoRecibo</th>";
-                                echo "<th>idSemana</th>";
+                                echo "<th>Semana</th>";
                                 echo "<th>Fecha Inicio</th>";
                                 echo "<th>Fecha Fin</th>";
                                 echo "<th>Recibo</th>";
@@ -184,7 +183,7 @@
                         }
                         $idRelReciboUsuario = $row['idRelUsuariosRecibos'];
                         echo "<td>" .$row['TipoRecibo'] . "</td>";
-                        echo "<td>" .$row['idSemana'] . "</td>";
+                        echo "<td>" .$row['Semana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
                         echo "<td>" .$row['Fecha Fin'] . "</td>";
                         echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
@@ -202,7 +201,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
+                    &copy; 2017 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">

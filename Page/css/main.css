@@ -1903,7 +1903,7 @@ ul.social_icons li  a i{
 }
 #tableRecibos {
    
-  width:  80%;
+  width:  70%;
   margin-top: 50px;
   margin-left:  15%;
   margin-right:  15%; 
@@ -2004,22 +2004,31 @@ TABLE MAIN
   padding-bottom: 20px;
 } 
 #tableRecibos tr:hover{
-  background-color: #66ddcf;
+  background-color: #b7b103;
+  color: white;
+  box-shadow: 5px 5px 15px #888484;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 300;
 }
 button{
   color: #e5eaec;
   background-color: #ab3c3c;
+  border-radius: 90px 5px;
+  text-align: right;
+  font-size: 17px;
 }
 button:hover{
   color: blue;
   background-color: white;
+  font-size: 20px;
 }
 
 #tableRecibos th,td{   
   margin-bottom: 20px;
   font-family: 'Poppins',sans-serif;   
   text-align: center;
-  font-size: 17px;
+  font-size: 20px; 
 } 
 #tableRecibos th{
   font-size: 23px;
