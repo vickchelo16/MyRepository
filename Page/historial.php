@@ -33,30 +33,26 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
 <script>
-<<<<<<< HEAD
-    function vShowPDF(el)
-    {    
-        /*alert(el);
-       */
-       var p = document.myform.mylist.value;
-       = p;
-       ;
-       <?php
-         $_SESSION["id"] = p;
-        ?>
-         window.open("viewer","PDF");   
-                
-=======
+ 
     function vShowPDF(id)
-    {     
-       window.open("viewer.php?idFolio="+id,"Recibo" );
-       /*
-       <?php
-         $_SESSION["id"] = id;
-        ?>
-         window.open("viewer","PDF"); 
-        */
->>>>>>> c7ae339f3d5356155729720ec959fb788cde418a
+    {  
+        <?php  
+        $idEmpleado = 79;
+        $Recibo = '';
+        $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
+        //$sSql = "Select Recibo from relEmpleadosRecibos where idRelUsuariosRecibos = " .$idEmpleado."";
+        $sSql = "Select Turno from Turnos";
+        $result = mysqli_query($con,$sSql);
+        $iCont = mysqli_num_rows($result);
+        echo 'console.log('.$iCont.')';
+        while($row = mysqli_fetch_assoc($result))
+        { 
+            $Turno = $row['Turno']; 
+          echo implode("",'console.log('.$Turno.')');       
+        }
+
+        //echo 'console.log('.$Recibo.')'; 
+        ?>        
     }
 </script>
 
