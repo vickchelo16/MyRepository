@@ -34,13 +34,16 @@
 <script>
     function vShowPDF(el)
     {    
-        alert(el);
-        /*
+        /*alert(el);
+       */
+       var p = document.myform.mylist.value;
+       = p;
+       ;
        <?php
-         $_SESSION["id"] = el;
+         $_SESSION["id"] = p;
         ?>
          window.open("viewer","PDF");   
-         */       
+                
     }
 </script>   
 
