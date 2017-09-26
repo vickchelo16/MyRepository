@@ -1,4 +1,4 @@
-﻿<?php
+<?php
     include 'php/conn.php';
 ?>
 
@@ -10,6 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
     <title>Login a | QC Control System</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -32,6 +33,7 @@
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
 <script>
+<<<<<<< HEAD
     function vShowPDF(el)
     {    
         /*alert(el);
@@ -44,14 +46,32 @@
         ?>
          window.open("viewer","PDF");   
                 
+=======
+    function vShowPDF(id)
+    {     
+       window.open("viewer.php?idFolio="+id,"Recibo" );
+       /*
+       <?php
+         $_SESSION["id"] = id;
+        ?>
+         window.open("viewer","PDF"); 
+        */
+>>>>>>> c7ae339f3d5356155729720ec959fb788cde418a
     }
-</script>   
+</script>
+
+<script type="text/javascript">
+    window.onbeforeunload = function(){
+        $.ajax({
+            type: "POST",
+            url: "historial.php"
+        });
+    }
+</script>
 
 </head><!--/head-->
 
-<body>
-    <div> 
-    </div>
+<body> 
     <header id="header">
         <div class="top-bar">
             <div class="container">
@@ -104,16 +124,15 @@
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->    
+    
     <div class="wrapHistorial">  
-    <h1>Recibos de pago</h1>          
-     
-    
-    
+        <h1>Recibos de pago</h1>    
+
     <div id="datosGenerales">          
         <?php
                     $idUser = $_SESSION['idEmpleado'];
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
-                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana, DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
+                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
                                 inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
                                 inner join Puestos p on emp.idPuesto = p.idPuesto \r
                                 inner join Semanas sem on rER.idRelSemana = sem.idIdentity \r
@@ -137,8 +156,7 @@
                     $imgFoto = null;
 
                     while($row = mysqli_fetch_assoc($result))
-                    {
-                       
+                    {                       
                         if($bHeader == false)
                         {
                             $bHeader = true;
@@ -151,7 +169,9 @@
                             $sRFC = $row['RFC'] ;
                             $dtFechaIngreso = $row['Fecha Ingreso'];
                             $sPuesto = $row['Puesto'] ;
-                            $imgFoto = $row['Foto'] ;
+                            $imgFoto = $row['Foto'];
+
+                            /*<object data="data:application/pdf;base64,<?php echo base64_encode(imgFoto) ?>" type="application/pdf" style="height:200px;width:60%"></object>*/
 
                             echo "<div id=divUl >
                             <img id=imgUl >
@@ -168,7 +188,7 @@
                                 echo "<table id=tableRecibos border= '0'>";
                                 echo "<tr>";                      
                                 echo "<th>TipoRecibo</th>";
-                                echo "<th>idSemana</th>";
+                                echo "<th>Semana</th>";
                                 echo "<th>Fecha Inicio</th>";
                                 echo "<th>Fecha Fin</th>";
                                 echo "<th>Recibo</th>";
@@ -178,10 +198,10 @@
                         }
                         $idRelReciboUsuario = $row['idRelUsuariosRecibos'];
                         echo "<td>" .$row['TipoRecibo'] . "</td>";
-                        echo "<td>" .$row['idSemana'] . "</td>";
+                        echo "<td>" .$row['Semana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
                         echo "<td>" .$row['Fecha Fin'] . "</td>";
-                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF(this.id)>PDF</button></td>";
+                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
                         echo "</tr>";                     
                     }
                     echo "</table>";                    
@@ -196,7 +216,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
+                    &copy; 2017 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">
@@ -217,8 +237,6 @@
     <script src="js/main.js"></script>
     <script src="js/wow.min.js"></script>
 
-    <script>
-    $(".table").DataTable();
-</script>
+     
 </body>
 </html>
