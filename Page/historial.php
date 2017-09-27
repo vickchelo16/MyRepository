@@ -38,20 +38,32 @@
     {  
         <?php  
         $idEmpleado = 79;
+        $idRelSemana = 67;
         $Recibo = '';
+        $NombreArchivo = '';
         $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
         //$sSql = "Select Recibo from relEmpleadosRecibos where idRelUsuariosRecibos = " .$idEmpleado."";
-        $sSql = "Select Turno from Turnos";
+        $sSql = "select Recibo from recibos_nomina.relEmpleadosRecibos where idRelSemana = 67";
         $result = mysqli_query($con,$sSql);
-        $iCont = mysqli_num_rows($result);
-        echo 'console.log('.$iCont.')';
-        while($row = mysqli_fetch_assoc($result))
-        { 
-            $Turno = $row['Turno']; 
-          echo implode("",'console.log('.$Turno.')');       
-        }
 
-        //echo 'console.log('.$Recibo.')'; 
+        $iRow = mysqli_num_rows($result);
+        echo 'console.log('.$iRow.')';
+        //$iCont = mysqli_num_rows($result);       
+
+                
+       // header('Content-Type: application/pdf');
+       // header('Accept-Ranges: bytes');
+        //header('Content-Transfer-Encoding: binary');
+       // header('Content-Length: '.strlen($Recibo));
+        //header('Content-Disposition: inline; filename='.$NombreArchivo.'.pdf');
+        //header('Expires: 0');
+        //header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+         
+
+        //ob_clean();
+        //flush();
+        ///readfile($Recibo);
+         
         ?>        
     }
 </script>
