@@ -1,0 +1,40 @@
+ /*
+        $Recibo = '';
+        $NombreArchivo = '';
+        $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
+        //$sSql = "Select Recibo from relEmpleadosRecibos where idRelUsuariosRecibos = " .$idEmpleado."";
+        $sSql = mysqli_query($con,"select Recibo,NombreArchivo from recibos_nomina.relEmpleadosRecibos where idRelSemana = 67");
+        $result = mysqli_fetch_assoc($sSql);
+        $fileContent = $result['Recibo'];
+        $filename = $result['Recibo'];
+       */ 
+        /*
+        header('Location: historial.php');
+        header('Content-type: application/pdf');        
+        header('Content-Transfer-Encoding: binary');
+        header('Accept-Ranges: bytes');
+        header('Content-Disposition: inline, filename="'.$filename.'"');
+        ob_clean();
+        flush();
+        readfile($fileContent);
+        mysqli_close($con);
+        */
+
+       // $iRow = mysqli_num_rows($result);
+       //  echo 'console.log('.$iRow.')';
+        //$iCont = mysqli_num_rows($result);       
+
+                
+       // header('Content-Type: application/pdf');
+       // header('Accept-Ranges: bytes');
+        //header('Content-Transfer-Encoding: binary');
+       // header('Content-Length: '.strlen($Recibo));
+        //header('Content-Disposition: inline; filename='.$NombreArchivo.'.pdf');
+        //header('Expires: 0');
+        //header('Cache-Control: must-revalidate, post-check=0, pre-check=0');        
+
+        //ob_clean();
+        //flush();
+        ///readfile($Recibo);
+         
+       // ?> 

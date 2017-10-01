@@ -36,35 +36,8 @@
  
     function vShowPDF(id)
     {  
-        <?php  
-        $idEmpleado = 79;
-        $idRelSemana = 67;
-        $Recibo = '';
-        $NombreArchivo = '';
-        $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
-        //$sSql = "Select Recibo from relEmpleadosRecibos where idRelUsuariosRecibos = " .$idEmpleado."";
-        $sSql = "select Recibo from recibos_nomina.relEmpleadosRecibos where idRelSemana = 67";
-        $result = mysqli_query($con,$sSql);
-
-        $iRow = mysqli_num_rows($result);
-        echo 'console.log('.$iRow.')';
-        //$iCont = mysqli_num_rows($result);       
-
-                
-       // header('Content-Type: application/pdf');
-       // header('Accept-Ranges: bytes');
-        //header('Content-Transfer-Encoding: binary');
-       // header('Content-Length: '.strlen($Recibo));
-        //header('Content-Disposition: inline; filename='.$NombreArchivo.'.pdf');
-        //header('Expires: 0');
-        //header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
-         
-
-        //ob_clean();
-        //flush();
-        ///readfile($Recibo);
-         
-        ?>        
+        console.log(id);                      
+         window.open('viewer.php?idFolio='+id);
     }
 </script>
 
@@ -140,7 +113,7 @@
         <?php
                     $idUser = $_SESSION['idEmpleado'];
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
-                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER \r
+                    $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER
                                 inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
                                 inner join Puestos p on emp.idPuesto = p.idPuesto \r
                                 inner join Semanas sem on rER.idRelSemana = sem.idIdentity \r
@@ -209,7 +182,7 @@
                         echo "<td>" .$row['Semana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
                         echo "<td>" .$row['Fecha Fin'] . "</td>";
-                        echo "<td><button id=$idRelReciboUsuario onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
+                        echo "<td><button id=$idRelReciboUsuario class=buttonTable onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
                         echo "</tr>";                     
                     }
                     echo "</table>";                    

@@ -62,7 +62,7 @@
         }
          
         if($uicheck > 0){             
-            $sqlAccess = "SELECT NickName FROM  Empleados where idEmpleado = ".$unameGot." and Contrasena = '".$passwordGot."'";                 
+            $sqlAccess = "SELECT NickName FROM  Empleados where idEmpleado = ".$unameGot." and BINARY Contrasena = '".$passwordGot."'";                 
             $resultAcess = mysqli_query($con,$sqlAccess);            
             $uicheckAcess = mysqli_num_rows($resultAcess);                          
             /* while ($row2 = mysqli_fetch_assoc($resultAcess)) {
