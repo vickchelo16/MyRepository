@@ -148,7 +148,22 @@
                 <p id="errorPass"></p>
                 <input type="submit" name="submit" value="ENTRAR" class="btn-login" /> 
             </form>
-	</div> 			 
+	</div> 
+
+	<div class="wrap-login">
+            <div class="loginFace">
+                <img src="images/users.png" alt="users">
+            </div>
+            <form method="POST" class="formMain" name="Form" action="login.php" autocomplete="off" onsubmit="return vValidateEmpty()">                    
+                <h1>Login</h1>
+                <h4>Administración de personal</h4>
+                <input type="text-indent:17px;" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="15" onblur="vValidateEmpty()" autofocus>
+                <p id="errorUsuario" ></p>
+                <input type="password" id="pass" name="passwordInp" placeholder= "Contrase&ntilde;a ..." maxlength="15" onblur="vValidateEmpty()">
+                <p id="errorPass"></p>
+                <input type="submit" name="submit" value="ENTRAR" class="btn-login" /> 
+            </form>
+	</div> 				 
      
     <div id="divError" class="alert-error"><?= $_SESSION['message'] ?></div>
      
@@ -156,7 +171,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-sm-6">
-                    &copy; 2015 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
+                    &copy; 2017 <a target="_blank" href="http://www.QC-Control.mx/" >QC Control System</a>. Todos los derechos reservados.
                 </div>
                 <div class="col-sm-6">
                     <ul class="pull-right">

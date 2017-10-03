@@ -1,5 +1,6 @@
 <?php           
-      $idGet = $_REQUEST['idFolio'];             
+      $idGet = $_REQUEST['idFolio'];  
+      $idGet = 67;           
       $sSql = "select Recibo,NombreArchivo from recibos_nomina.relEmpleadosRecibos where idRelSemana = ".$idGet;
       $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
       $result = mysqli_query($con,$sSql);       
