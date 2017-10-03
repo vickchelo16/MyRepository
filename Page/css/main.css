@@ -2115,10 +2115,10 @@ textarea#message{
  /* width: 0px;
   height: 0px;*/
 }
-.wrap-login{
+.wrap-loginAdmin{
   width: 250px;
   overflow: hidden;
-  margin: auto;
+  margin: 0 auto;
   margin-top: 10px;
   margin-bottom: 20px; 
   color: rgb(0, 0, 0);
@@ -2126,8 +2126,34 @@ textarea#message{
   border: 1px solid silver;
   border-radius: 5px;
   background-color: #fff;
+  display: inline-table;
+  text-align:center;
+}
+.wrap-login{
+  width: 250px;
+  overflow: hidden;
+  margin: 0 auto;
+  margin-top: 10px;
+  margin-bottom: 20px; 
+  color: rgb(0, 0, 0);
+  padding: 20px;
+  border: 1px solid silver;
+  border-radius: 5px;
+  background-color: #fff;
+  display: inline-table;
+  text-align: center;
 }
 .wrap-login input{
+  width: 200px;
+  height: 35px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  border: 1px solid silver;
+  padding: 5px;
+   
+  color:  rgb(0, 0, 0);
+}
+.wrap-loginAdmin input{
   width: 200px;
   height: 35px;
   margin-bottom: 10px;
@@ -2147,6 +2173,16 @@ textarea#message{
   border: 0px;
   font-size: 18px;
 }
+.wrap-loginAdmin .btn-login{
+  padding: 10px;
+  width: 200px;
+  height: 40px;
+  background-color: #00141a;
+  color: #4db8ff;
+  border-radius: 3px;
+  border: 0px;
+  font-size: 18px;
+}
 .wrap-login h1{
   padding: 0px;
   font-size: 30px;   
@@ -2154,11 +2190,23 @@ textarea#message{
   text-align: center;
   margin-bottom: 15px;
 }
-
+.wrap-loginAdmin h1{
+  padding: 0px;
+  font-size: 30px;   
+  color: #00141a;
+  text-align: center;
+  margin-bottom: 15px;
+}
 .wrap-login h4{
   padding-top: 0px;
   padding-bottom: 5px;
   color: #006280;
+}
+.wrap-loginAdmin h4{
+  padding-top: 0px;
+  padding-bottom: 5px;
+  color: #006280;
+  text-align:center;
 }
 
 .formMain input{
