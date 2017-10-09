@@ -1,38 +1,22 @@
- body{
-     background: white;
-     margin: 0px;
-     padding: 0px;
- }
-.formLogin{
-    border: solid 1px;       
-    display: inline-table;
-    padding: 20px;
-    height: 200px;
-    width: 30;
-    text-align: center;
-    margin: 0 auto;
-    border-radius: 15px 15px 15px 15px;
-} 
-.formAdmin{
-    border: solid 1px;       
-    display: inline-table;
-    padding: 10px;
-    height: 100px;
-    width: 40%;
+ 
+.formAdmin{ 
+     
+    height: 150px;
+    width: 95%;
+    max-width: 500px;
     overflow: hidden;
-    margin: 0 auto;
+    margin: 0px auto;
     border-radius: 15px 15px 15px 15px;
-    margin: 0 70;
+    box-shadow: -5px -1px 90px 5px gray;  
 } 
-.formAdmin [type="text"]{
-    padding: 10px;
-    margin: 10px;      
+.formAdmin [type="text"]{ 
+    margin: auto0px;      
 }
 .formAdmin [type="submit"]{
-    padding: 10px;
-    margin: 10px;
+    
+    margin: 5px;
     background: blue;     
+}  
+#idForm{
+   text-align: center;
 }
-.idForma{ 
-    margin: 0 auto;
-} 
