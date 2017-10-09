@@ -22,5 +22,15 @@
             <input type="submit" placeholder="Aceptar" id="btnAceptar" onclick="Click()">
         </form>
     </div>
+    <table class="tblAdmin">
+          
+          <th>Empleado</th>
+          <td>
+              <tr> 1 row</tr>
+              <tr> 2 row</tr>
+              <tr> 3 row</tr>
+          </td
+            
+    </table>
 </body>
 </html>s
