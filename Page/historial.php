@@ -151,12 +151,21 @@
                             $dtFechaIngreso = $row['Fecha Ingreso'];
                             $sPuesto = $row['Puesto'] ;
                             $imgFoto = $row['Foto'];
-
-                            /*<object data="data:application/pdf;base64,<?php echo base64_encode(imgFoto) ?>" type="application/pdf" style="height:200px;width:60%"></object>*/
-
+                             
+                           /*                            
+                             echo '<img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';
+                           
+                            <object data="data:application/pdf;base64,<?php echo base64_encode($imgFoto) ?>" type="application/pdf" style="height:200px;width:60%"></object>
+                            */
+                            
+                            /*
                             echo "<div id=divUl >
-                            <img id=imgUl >
-                            <ul id=ulValues> 
+                            <img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'">'
+                            */
+                            
+                            echo "<div id=divUl>";
+                            echo '<img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';
+                            echo "<ul id=ulValues> 
                             <li><strong>NOMBRE : </strong>$sPrimerNombre $sSegundoNombre $sApellidoPaterno $sApellidoMaterno</li> 
                             <li><strong>Empleado : </strong>$idEmpleado</li> 
                             <li><strong>NSS : </strong>$sNSS</li> 

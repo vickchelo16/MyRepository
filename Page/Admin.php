@@ -135,20 +135,29 @@
             </div><!--/.container-->
         </nav><!--/nav-->
     </header><!--/header-->    
-    <div class="wrap-login">
-            <div class="loginFace">
-                <img src="images/users.png" alt="users">
-            </div>
-            <form method="POST" class="formMain" name="Form" action="login.php" autocomplete="off" onsubmit="return vValidateEmpty()">                    
-                <h1>Login</h1>
-                <h4>Introduce tu numero de empleado y contraseña para acceder a tus recibos de pago.</h4>
-                <input type="text-indent:17px;" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="15" onblur="vValidateEmpty()" autofocus>
-                <p id="errorUsuario" ></p>
-                <input type="password" id="pass" name="passwordInp" placeholder= "Contrase&ntilde;a ..." maxlength="15" onblur="vValidateEmpty()">
-                <p id="errorPass"></p>
-                <input type="submit" name="submit" value="ENTRAR" class="btn-login" /> 
-            </form>
+    <div class="allEmp">    
+            <h1>Empleados</h1>
 	</div> 
+	   <table class="tableEmp">	                       
+            <tr>
+                 <th>Header 1</th>
+                 <th>Header 2</th>
+                 <th>Header 3</th>
+            </tr>                 
+            <tr>             
+                <td>Column1</td>
+                <td>Column2</td>
+                <td>Column3</td>
+            </tr>
+            <tr>             
+                <td>Column11</td>
+                <td>Column22</td>
+                <td>Column33</td>
+            </tr>
+	   <table>
+	<div>
+
+	</div>
 
 	  				 
      

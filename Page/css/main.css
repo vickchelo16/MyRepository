@@ -1982,20 +1982,20 @@ TABLE MAIN
   padding-bottom: 35px;
   margin-bottom: 35px;
   width: 50%;
-  height: 150px;
+  height: 220px;
   border: 0px solid;
   clear: left;
   margin: auto;
-  padding: 10px;   
+  padding: 10px;
   box-shadow: -5px -5px 45px #888888;
   border-radius: 15px;
 }
 #imgUl { 
   border-radius: 10px;
-  content: url('../images/me.jpg');  
+  --content: url('../images/me.jpg');  
   background-repeat: no-repeat;
   width: 150px;
-  height: 150px;
+  height: 200px;
   margin: auto;
   padding: 0;
   display: inline;
@@ -2115,20 +2115,7 @@ textarea#message{
  /* width: 0px;
   height: 0px;*/
 }
-.wrap-loginAdmin{
-  width: 250px;
-  overflow: hidden;
-  margin: 0 auto;
-  margin-top: 10px;
-  margin-bottom: 20px; 
-  color: rgb(0, 0, 0);
-  padding: 20px;
-  border: 1px solid silver;
-  border-radius: 5px;
-  background-color: #fff;
-  display: inline-table;
-  text-align:center;
-}
+ 
 .wrap-login{
   width: 250px;
   overflow: hidden;
@@ -2139,8 +2126,7 @@ textarea#message{
   padding: 20px;
   border: 1px solid silver;
   border-radius: 5px;
-  background-color: #fff;
-  display: inline-table;
+  background-color: #fff;   
   text-align: center;
 }
 .wrap-login input{
@@ -2152,17 +2138,7 @@ textarea#message{
   padding: 5px;
    
   color:  rgb(0, 0, 0);
-}
-.wrap-loginAdmin input{
-  width: 200px;
-  height: 35px;
-  margin-bottom: 10px;
-  border-radius: 3px;
-  border: 1px solid silver;
-  padding: 5px;
-   
-  color:  rgb(0, 0, 0);
-}
+} 
 .wrap-login .btn-login{
   padding: 10px;
   width: 200px;
@@ -2172,31 +2148,14 @@ textarea#message{
   border-radius: 3px;
   border: 0px;
   font-size: 18px;
-}
-.wrap-loginAdmin .btn-login{
-  padding: 10px;
-  width: 200px;
-  height: 40px;
-  background-color: #00141a;
-  color: #4db8ff;
-  border-radius: 3px;
-  border: 0px;
-  font-size: 18px;
-}
+} 
 .wrap-login h1{
   padding: 0px;
   font-size: 30px;   
   color: #00141a;
   text-align: center;
   margin-bottom: 15px;
-}
-.wrap-loginAdmin h1{
-  padding: 0px;
-  font-size: 30px;   
-  color: #00141a;
-  text-align: center;
-  margin-bottom: 15px;
-}
+} 
 .wrap-login h4{
   padding-top: 0px;
   padding-bottom: 5px;
@@ -2227,6 +2186,31 @@ textarea#message{
   background-image: url('../images/error.png') no-repeat 0 0;   
   padding-left: 30px;
  
+}
+
+/*********************
+******* ADMIN CSS ****
+**********************/
+
+.allEmp h1{
+	color: gray;
+	text-align: center;
+	padding: 20px;
+}
+.tableEmp{
+	border: 1px solid black;
+	margin: auto; 
+}
+.tableEmp th{
+	background-color: red;
+	font-size: 20px;
+	padding: 25px;
+}
+.tableEmp td{
+	background-color: gray;
+	font-size: 15px;
+	font-style: white;
+	padding: 15px;
 }
 /*********************
 ****blog page css*****
