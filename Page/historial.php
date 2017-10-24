@@ -106,10 +106,9 @@
         </nav><!--/nav-->
     </header><!--/header-->    
     
-    <div class="wrapHistorial">  
-        <h1>Recibos de pago</h1>    
+    
 
-    <div id="datosGenerales">          
+     <div id="datosGenerales">          
         <?php
                     $idUser = $_SESSION['idEmpleado'];
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
@@ -163,38 +162,46 @@
                             <img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'">'
                             */
                             
-                            echo "<div id=divUl>";
-                            echo '<img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';
-                            echo "<ul id=ulValues> 
-                            <li><strong>NOMBRE : </strong>$sPrimerNombre $sSegundoNombre $sApellidoPaterno $sApellidoMaterno</li> 
-                            <li><strong>Empleado : </strong>$idEmpleado</li> 
-                            <li><strong>NSS : </strong>$sNSS</li> 
-                            <li><strong>RFC : </strong>$sRFC</li> 
-                            <li><strong>Fecha ingreso : </strong>$dtFechaIngreso</li> 
-                            <li><strong>Puesto : </strong>$sPuesto</li>
-                           </ul>
-                            </div>";
-
+                            echo "<div class=divUl-nav>";
+                            echo "<h1>Hola $sPrimerNombre ! </h1>";
+                            echo '<img src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';                            
+                            echo "<ul>                                                                   
+                                    <li class=item><strong>NOMBRE : </strong>$sPrimerNombre $sSegundoNombre $sApellidoPaterno $sApellidoMaterno</li> 
+                                    <li class=item><strong>Empleado : </strong>$idEmpleado</li> 
+                                    <li class=item><strong>NSS : </strong>$sNSS</li> 
+                                    <li class=item><strong>RFC : </strong>$sRFC</li> 
+                                    <li class=item><strong>Fecha ingreso : </strong>$dtFechaIngreso</li> 
+                                    <li class=item><strong>Puesto : </strong>$sPuesto</li>                                     
+                                   </ul>
+                                  </div>";
+                        
+                            /*</ul>
+                            </div>";*/
+                                
+                                echo " <div class=wrapHistorial>"; 
+                                echo "<imgg id=imgRecibos src=images/logo33.png><h1>Recibos</h1>";
+                                echo "<div id=divTable>";                                
                                 echo "<table id=tableRecibos border= '0'>";
                                 echo "<tr>";                      
-                                echo "<th>TipoRecibo</th>";
+                                echo "<th class=columnHidden>TipoRecibo</th>";
                                 echo "<th>Semana</th>";
                                 echo "<th>Fecha Inicio</th>";
-                                echo "<th>Fecha Fin</th>";
+                                echo "<th class=columnHidden>Fecha Fin</th>";
                                 echo "<th>Recibo</th>";
                                 echo "<td>";
                                 echo "</tr>";
                                 echo "<tr>"; 
                         }
                         $idRelReciboUsuario = $row['idRelUsuariosRecibos'];
-                        echo "<td>" .$row['TipoRecibo'] . "</td>";
+                        echo "<td class=columnHidden>" .$row['TipoRecibo'] . "</td>";
                         echo "<td>" .$row['Semana'] . "</td>";
                         echo "<td>" .$row['Fecha Inicio'] . "</td>";
-                        echo "<td>" .$row['Fecha Fin'] . "</td>";
+                        echo "<td  class=columnHidden>" .$row['Fecha Fin'] . "</td>";
                         echo "<td><button id=$idRelReciboUsuario class=buttonTable onclick=vShowPDF($idRelReciboUsuario)>PDF</button></td>";
                         echo "</tr>";                     
                     }
                     echo "</table>";                    
+                    echo "</div>";                    
                     mysqli_close($con); 
                      ?>         
 
