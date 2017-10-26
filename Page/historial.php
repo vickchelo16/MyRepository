@@ -1,4 +1,5 @@
 <?php
+   
     include 'php/conn.php';
 ?>
 
@@ -111,6 +112,8 @@
      <div id="datosGenerales">          
         <?php
                     $idUser = $_SESSION['idEmpleado'];
+                    if($idUser = '')
+                        return
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
                     $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER
                                 inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
