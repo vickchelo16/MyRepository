@@ -1,6 +1,11 @@
 <?php           
-      $idGet = $_REQUEST['idFolio'];  
-      $idGet = 67;           
+      $idGet = $_SESSION['idFolio'];  
+      //$idGet = 67;           
+      if(!isset($_SESSION['idFolio']))
+      {         
+        echo '<script>window.location = "../Page/login.php";</script>';
+        exit();
+      }
       $sSql = "select Recibo,NombreArchivo from recibos_nomina.relEmpleadosRecibos where idRelSemana = ".$idGet;
       $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
       $result = mysqli_query($con,$sSql);       

@@ -1,6 +1,16 @@
 <?php
    
     include 'php/conn.php';
+    if(!isset($_SESSION['idEmpleado']))
+    {        
+       echo '<script>window.location="../Page/login.php";</script>';
+       exit();                       
+    }
+    else
+    {
+       $idUser = $_SESSION['idEmpleado'];                                 
+     }    
+     $_SESSION['idFolio'] = 67;
 ?>
 
 
@@ -33,12 +43,20 @@
     <link rel="apple-touch-icon-precomposed" sizes="72x72" href="images/ico/apple-touch-icon-72-precomposed.png">
     <link rel="apple-touch-icon-precomposed" href="images/ico/apple-touch-icon-57-precomposed.png">
 
-<script>
- 
+<script> 
     function vShowPDF(id)
     {  
         console.log(id);                      
          window.open('viewer.php?idFolio='+id);
+    }
+    function vClose()
+    {
+        console.log('Se cerro session');
+//        window.location('../login.php');
+       <?php
+       // echo '<script>window.location="../Page/login.php";</script>';
+      // exit();                       
+       ?>
     }
 </script>
 
@@ -110,10 +128,8 @@
     
 
      <div id="datosGenerales">          
-        <?php
-                    $idUser = $_SESSION['idEmpleado'];
-                    if($idUser = '')
-                        return
+        <?php                  
+                    
                     $con = mysqli_connect("www.qc-control.mx","profesio2","Prbendiciones2","recibos_nomina");
                     $sSql = "Select  rER.idRelUsuariosRecibos,  emp.PrimerNombre, \r\n  emp.SegundoNombre , emp.ApellidoPaterno , \remp.ApellidoMaterno, rER.idEmpleado,  emp.NSS, emp.RFC, \remp.FechaInicio 'Fecha Ingreso' \r,p.Puesto,tr.TipoRecibo,sem.idSemana 'Semana', DATE( sem.FechaInicio) 'Fecha Inicio', DATE(sem.FechaFin) 'Fecha Fin',emp.Foto from relEmpleadosRecibos rER
                                 inner join Empleados emp on rER.idEmpleado = emp.idEmpleado \r
@@ -164,9 +180,9 @@
                             echo "<div id=divUl >
                             <img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'">'
                             */
-                            
+                            echo "<a href=php/logout.php class=aLogout >Cerrar sessión</a>";
                             echo "<div class=divUl-nav>";
-                            echo "<h1>Hola $sPrimerNombre ! </h1>";
+                            echo "<h1>Hola $sPrimerNombre ! </h1>";                             
                             echo '<img src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';                            
                             echo "<ul>                                                                   
                                     <li class=item><strong>NOMBRE : </strong>$sPrimerNombre $sSegundoNombre $sApellidoPaterno $sApellidoMaterno</li> 
@@ -206,6 +222,8 @@
                     echo "</table>";                    
                     echo "</div>";                    
                     mysqli_close($con); 
+                    //SESSION_UNSET();
+                    //SESSION_DESTROY();
                      ?>         
 
 	</div> 			 

@@ -49,6 +49,7 @@ h4{
 }
 
 a {
+	
 	color: #FFFFFF;
 	-webkit-transition: color 300ms, background-color 300ms;
 	-moz-transition: color 300ms, background-color 300ms;
@@ -2150,6 +2151,21 @@ TABLE MAIN
    
 } 
 */
+.aLogout{
+	text-align: right;
+	color: green;
+ 	font-size: 15px;
+ 	font-family: 'Poppins',sans-serif;
+ 	margin; auto;
+ 	display: block;
+}
+.divLogout{
+	position: absolute;
+	float: left;
+	text-align: right;
+	background-color: red;
+	inline: block;
+}
 .divUl-nav img{
 	height: 180px;
 	width: 150px;
@@ -2161,7 +2177,7 @@ TABLE MAIN
 .divUl-nav{
 	margin-top: 1px;	 
 	text-align: center;
-	box-shadow: -1px -40px 150px 1px gray;
+	box-shadow: -15px 10px 10px -5px gray;
 	margin-bottom: 20px;	 	 
 	position: relative;
 	float: none;	
@@ -2192,11 +2208,12 @@ TABLE MAIN
 	vertical-align: top;
 	margin-top: 0px; 	  
 	font-family: 'Poppins',sans-serif;  
-	font-size: 20px;
-	padding: 10px;	 
+	font-size: 17px;
+	padding: 0px;	 
+	padding-bottom: 5px;
 }
 .divUl-nav ul li strong{
-	font-size: 25px;
+	font-size: 19px;
 }
 .divUl-nav ul a{
 	display: block;
@@ -2204,7 +2221,7 @@ TABLE MAIN
 	padding: 5px 0;
 	width: 150px;
 	text-align: center;
-	font-size: 20px;
+	font-size: 18px;
 }
 
 #divUl{     

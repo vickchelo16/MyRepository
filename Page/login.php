@@ -1,5 +1,8 @@
 <?php
     include 'php/conn.php';
+    if(isset($_SESSION['idEmpleado'])){
+        echo '<script> window.location="historial.php" </script>';
+    }
 ?>
 
 
@@ -66,7 +69,13 @@
        else{
             inputPass.style.border = "2px solid #1790d6";
        }
-    } 
+    }
+    function isNumberKey(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if(charCode > 31 && (charCode < 48 || charCode > 57))
+            return false;
+         return true;
+    }
     </script>
 
     <!--[if lt IE 9]>
@@ -142,7 +151,7 @@
             <form method="POST" class="formMain" name="Form" action="login.php" autocomplete="off" onsubmit="return vValidateEmpty()">                    
                 <h1>Login</h1>
                 <h4>Introduce tu numero de empleado y contraseña para acceder a tus recibos de pago.</h4>
-                <input type="text-indent:17px;" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="15" onblur="vValidateEmpty()" autofocus>
+                <input type="text" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="6" onblur="vValidateEmpty()" onkeypress="return isNumberKey(event)" autofocus>
                 <p id="errorUsuario" ></p>
                 <input type="password" id="pass" name="passwordInp" placeholder= "Contrase&ntilde;a ..." maxlength="15" onblur="vValidateEmpty()">
                 <p id="errorPass"></p>
