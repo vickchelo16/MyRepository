@@ -9,8 +9,7 @@
     else
     {
        $idUser = $_SESSION['idEmpleado'];                                 
-     }    
-     $_SESSION['idFolio'] = 67;
+     }   
 ?>
 
 
@@ -137,7 +136,7 @@
                                 inner join Semanas sem on rER.idRelSemana = sem.idIdentity \r
                                 inner join TiposRecibo tr on rER.idTipoRecibo = tr.idIdentity \r
                                 where emp.idEmpleado = ".$idUser." \r
-                                Order by sem.idSemana asc";
+                                Order by sem.idSemana desc";
                     $result = mysqli_query($con,$sSql);
                    /*echo "<div width=150>$sSql</div>";*/
 
@@ -242,6 +241,7 @@
                         <li><a href="about-us.html">Sobre Nosotros</a></li>
                         <li><a href="services.html">Servicios</a></li>
                         <li><a href="contact-us.html">Contacto</a></li>
+                        <li><a href="login.php">Recibos</a></li>
                     </ul>
                 </div>
             </div>

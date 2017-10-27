@@ -1930,7 +1930,7 @@ td{
  th{
   font-size: 7px;   
   font-family: Helvetica;
-  padding: 17px;
+  padding: 7px;
   background-color: #002f56;
   color: white;
    margin-top: 10px;
@@ -2106,7 +2106,7 @@ TABLE MAIN
 	  
 	#tableRecibos th{
   		font-size: 26px;
-  		padding: 30px;
+  		padding: 11px;
 	}
 	#tableRecibos td{ 
 		font-size: 24px;		 
@@ -2153,11 +2153,12 @@ TABLE MAIN
 */
 .aLogout{
 	text-align: right;
-	color: green;
- 	font-size: 15px;
- 	font-family: 'Poppins',sans-serif;
- 	margin; auto;
- 	display: block;
+	color: #ef0b0e;
+	font-size: 15px;
+	font-family: 'Poppins',sans-serif;
+	margin;
+	auto;
+	display: block;
 }
 .divLogout{
 	position: absolute;
@@ -2258,9 +2259,11 @@ button:hover{
 }
 
 #tableRecibos th,td{   
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   font-family: 'Poppins',sans-serif;   
-  text-align: center;   
+  text-align: center;  
+  margin: 0px;
+  paddig: 0px; 
 } 
 /*
 #tableRecibos td{
