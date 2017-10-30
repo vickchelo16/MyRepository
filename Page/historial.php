@@ -1,26 +1,31 @@
-<?php
-   
-    include 'php/conn.php';
+<?php       
+    session_save_path('/tmp');
+    session_start();
+    include 'php/conn.php'; 
+ 
+    $idEmp = $_SESSION['idEmpleado'];
+    //echo '<script type="text/javascript">alert("'.$idEmp.'");</script>';   
     if(!isset($_SESSION['idEmpleado']))
     {        
-       echo '<script>window.location="../Page/login.php";</script>';
+       //echo "<script> alert('Error:No conectado');</script>";              
+       echo "<script>location='login.php';</script>";
        exit();                       
     }
     else
     {
        $idUser = $_SESSION['idEmpleado'];                                 
-     }   
+    } 
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=gb18030">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
-    <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+    
     <title>Login a | QC Control System</title>
     
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
@@ -168,18 +173,8 @@
                             $dtFechaIngreso = $row['Fecha Ingreso'];
                             $sPuesto = $row['Puesto'] ;
                             $imgFoto = $row['Foto'];
-                             
-                           /*                            
-                             echo '<img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';
-                           
-                            <object data="data:application/pdf;base64,<?php echo base64_encode($imgFoto) ?>" type="application/pdf" style="height:200px;width:60%"></object>
-                            */
-                            
-                            /*
-                            echo "<div id=divUl >
-                            <img id=imgUl src="data:image/jpeg;base64,'.base64_encode($imgFoto).'">'
-                            */
-                            echo "<a href=php/logout.php class=aLogout >Cerrar sessión</a>";
+                              
+                            echo "<a href=php/logout.php class=aLogout >Cerrar sessi贸n</a>";
                             echo "<div class=divUl-nav>";
                             echo "<h1>Hola $sPrimerNombre ! </h1>";                             
                             echo '<img src="data:image/jpeg;base64,'.base64_encode($imgFoto).'"/>';                            
@@ -192,10 +187,7 @@
                                     <li class=item><strong>Puesto : </strong>$sPuesto</li>                                     
                                    </ul>
                                   </div>";
-                        
-                            /*</ul>
-                            </div>";*/
-                                
+                         
                                 echo " <div class=wrapHistorial>"; 
                                 echo "<imgg id=imgRecibos src=images/logo33.png><h1>Recibos</h1>";
                                 echo "<div id=divTable>";                                
@@ -220,15 +212,10 @@
                     }
                     echo "</table>";                    
                     echo "</div>";                    
-                    mysqli_close($con); 
-                    //SESSION_UNSET();
-                    //SESSION_DESTROY();
-                     ?>         
-
-	</div> 			 
-     
-    <div id="divError" class="alert-error"><?= $_SESSION['message'] ?></div> 
-     
+                    mysqli_close($con);  
+                     ?>   
+    </div>   
+    <div id="divError" class="alert-error"><?= $_SESSION['message'] ?></div>  
     <footer id="footerLogin">
         <div class="container">
             <div class="row">
@@ -247,7 +234,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
-	 
+     
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>

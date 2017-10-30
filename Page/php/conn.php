@@ -1,5 +1,6 @@
  
 <?php  
+        //echo '<script> alert("Error: Entro con ... ");</script>';              
         session_start();
         $_SESSION['message'] = '';
         $url = "http://".$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI'];
@@ -36,7 +37,7 @@
 
             <?php 
         }
-    $con = mysqli_connect('www.qc-control.mx','root_qccontrol','Prbendiciones2',"recibos_nomina");   
+    $con = mysqli_connect('www.qc-control.mx','root_qccontrol','Prbendiciones2',"recibos_nomina");       
     if(isset($_POST['usernameInp'])){    
 
         $_SESSION['userLogin'] = $_POST['usernameInp'];
@@ -44,11 +45,13 @@
         $passwordGot = $_POST['passwordInp'];
 
         if(empty($unameGot)){
-            header("Location: ../Page/login.php?error=empty1");
+            //header("Location: ../Page/login.php?error=empty1");
+            echo "<script>location='../login.php?error=empty1'</script>";
             exit();
         }
         if(empty($passwordGot)){
-            header("Location: ../Page/login.php?error=empty2");
+            //header("Location: ../Page/login.php?error=empty2");
+            echo "<script>location='../login.php?error=empty2'</script>";
             exit();
         }
         
@@ -57,7 +60,8 @@
         $uicheck = mysqli_num_rows($result);         
         mysqli_free_result($result);
         if($uicheck <= 0){
-             header("Location: ../Page/login.php?error=usernameempty");
+             //header("Location: ../Page/login.php?error=usernameempty");
+             echo "<script>location='../login.php?error=usernameempty'</script>";
              exit();
         }
          
@@ -71,11 +75,13 @@
             mysqli_free_result($resultAcess);
             if($uicheckAcess >= 1){       
                 $_SESSION['idEmpleado'] = $unameGot; 
-                header("Location: ../Page/historial.php");
+                //header("Location: ../Page/historial.php");
+                echo "<script>location='historial.php'</script>";
                 die();
             }
             else{
-                header("Location: ../Page/login.php?error=passwordWrong");
+                //header("Location: ../Page/login.php?error=passwordWrong");
+                echo "<script>location='login.php?error=passwordWrong"</script>;
                 exit();
             }
         }          

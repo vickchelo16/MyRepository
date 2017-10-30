@@ -1,0 +1,17 @@
+Forma de redireccionar OK :
+echo "<script>location='login.php?error=usernameempty'</script>";
+
+Forma de mostrar alert OK:
+echo "<script> alert('Entro a cabecera login'); </script>";
+
+Forma de mostrar PDF OK:
+header('Content-Description: File Transfer'); 
+        header("Content-Length: ". strlen($file));
+        header('Content-Type: application/octet-stream'); 
+        header("Content-Type:application/pdf");
+        header("Content-disposition: inline; filename='".$fileName );
+        header('Expires: 0');
+        header('Cache-Control: must-revalidate, post-check=0, pre-check=0');
+        ob_clean();
+        flush();         
+        echo $file; 

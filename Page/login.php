@@ -1,15 +1,17 @@
 <?php
-    include 'php/conn.php';
+    //echo "<script> alert('Entro a cabecera login'); </script>";
+   // include 'php/conn.php';
+    //echo "<script> alert('Incluyo conna cabecera '); </script>";
     if(isset($_SESSION['idEmpleado'])){
-        echo '<script> window.location="historial.php" </script>';
+        echo "<script> location='historial.php'</script>";
     }
 ?>
 
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="utf-8">
+<head><meta http-equiv="Content-Type" content="text/html; charset=euc-jp">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="">
@@ -151,16 +153,16 @@
             </div>
             <form method="POST" class="formMain" name="Form" action="login.php" autocomplete="off" onsubmit="return vValidateEmpty()">                    
                 <h1>Login</h1>
-                <h4>Introduce tu numero de empleado y contraseña para acceder a tus recibos de pago.</h4>
+                <h4>Introduce tu numero de empleado y contrase単a para acceder a tus recibos de pago.</h4>
                 <input type="text" id="user" name="usernameInp"  placeholder= "Usuario ..." maxlength="6" onblur="vValidateEmpty()" onkeypress="return isNumberKey(event)" autofocus>
                 <p id="errorUsuario" ></p>
                 <input type="password" id="pass" name="passwordInp" placeholder= "Contrase&ntilde;a ..." maxlength="15" onblur="vValidateEmpty()">
                 <p id="errorPass"></p>
                 <input type="submit" name="submit" value="ENTRAR" class="btn-login" /> 
             </form>
-	</div> 
+    </div> 
 
-	  				 
+                     
      
     <div id="divError" class="alert-error"><?= $_SESSION['message'] ?></div>
      
@@ -181,7 +183,7 @@
             </div>
         </div>
     </footer><!--/#footer-->
-	 
+     
     <script src="js/jquery.js"></script>
     <script src="js/bootstrap.min.js"></script>
     <script src="js/jquery.prettyPhoto.js"></script>
